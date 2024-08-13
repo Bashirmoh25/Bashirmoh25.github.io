@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>home page with sass</title>
+    <link rel="stylesheet" href="./main.css">
+    <link rel="shortcut icon" href="./assets/images/favicon-32x32.png" type="image/x-icon">
+    <link rel="stylesheet" href="./assets/fonts/Inter-VariableFont_slnt,wght.ttf">
+
+</head>
+<body>
+    
+    <header class="header-top">
+        <div class="logo">
+            <img src="./assets/images/logo.svg" alt="logo">
+        </div>
+        <nav>
+            <ul class="navMenu">
+                <div class="menuIcon" id="close"  >
+                    <img src="./assets/images/icon-menu-close.svg" alt="menu-close">
+                </div>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">News</a></li>
+                <li><a href="#">Popular</a></li>
+                <li><a href="#">Trending</a></li>
+                <li><a href="#">Categories</a></li>
+            </ul>
+        </nav>
+        <div class="menuIcon" id="open" >
+            <img src="./assets/images/icon-menu.svg" alt="menu-open">
+        </div>
+    </header>
+    <div class="wrapper">
+        <div class="img">
+            <img src="./image-web-3-desktop.jpg" height="100%" width="100%"  alt="web-3-image" srcset="">
+        </div>
+        
+        <section class="topic">
+            <header class="title">
+                <h1>The Bright Future of Web 3.0?</h1>
+            </header>
+            <div class="para">
+                <p>
+                    We dive into the next evolution of the web that claims to put the power of the platforms back into the hands of the people. 
+                    But is it really fulfilling its promise?
+
+                </p>
+                <button>READ MORE</button>
+            </div>
+        </section>
+
+        <aside>
+            <H1>NEW</H1>
+            <Header class="aside">
+                <h2 class="aside-title">Hydrogen VS Electric Cars</h2>
+                <p class="aside-para">Will hydrogen-fueled cars ever catch up to EVs?</p>
+            </Header>
+            <Header class="aside">
+                <h2 class="aside-title">The Downsides of AI Artistry</h2>
+                <p class="aside-para">What are the possible adverse effects of on-demand AI image generation?</p>
+            </Header>
+            <Header class="aside">
+                <h2 class="aside-title">Is VC Funding Drying Up?</h2>
+                <p class="aside-para">Private funding by VC firms is down 50% YOY. We take a look at what that means.</p>
+            </Header>
+        </aside>
+
+        <div class="related">
+            <div class="box">
+                <div class="box-img"></div>
+                <img src="./assets/images/image-retro-pcs.jpg" id="img" width="100%" height="100%" alt="PCs">
+                <div class="description">
+                    <h2>01</h2>
+                    <h3>Reviving Retro PCs</h3>
+                    <p>What happens when old PCs are given modern upgrades?</p>
+                </div>
+            </div>
+            <div class="box">
+                <div class="box-img"></div>
+                <img src="./assets/images/image-top-laptops.jpg" height="100%" width="100%"  alt="Laptops">
+                <div class="description">
+                    <h2>02</h2>
+                    <h3>Top 10 Laptops of 2022</h3>
+                    <p> Our best picks for various needs and budgets.</p>
+                </div>
+            </div>
+            <div class="box">
+                <div class="box-img"></div>
+                <img src="./assets/images/image-gaming-growth.jpg"height="100%" width="100%" alt="Gaming">
+                <div class="description">
+                    <h2>03</h2>
+                    <h3>The Growth of Gaming</h3>
+                    <p>How the pandemic has sparked fresh opportunities.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer>
+        Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+        Coded by <a href="#">Bashir Mohamed</a>.
+    </footer>
+    <script src="./index.js"></script>
+</body>
+</html>

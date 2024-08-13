@@ -1,0 +1,279 @@
+/*******primary colors*****/
+$SoftOrange: hsl(35, 77%, 62%);
+$SoftRed: hsl(5, 85%, 63%);
+/*********neutral colors*******/
+$Off-white: hsl(36, 100%, 99%);
+$GrayishBlue: hsl(233, 8%, 79%);
+$DarkGrayishBlue: hsl(236, 13%, 42%);
+$VeryDarkBlue: hsl(240, 100%, 5%);
+$margin-main:20px;
+////////////////////////////////////////////////////////////////////////////////////////
+//------------------break points-----------------------------------------------------///
+@mixin topic{
+    display: grid;
+    grid-template-columns: subgrid;
+}
+@mixin position-mixin{
+    position: absolute;
+    right: 0;
+    top: 0;
+    width: 75%;
+}
+@mixin aside-mixin{
+    background-color: $VeryDarkBlue;
+    padding: 10px 10px 0 10px;
+    color: $Off-white;
+    h1{color: $SoftOrange; margin: 10px 0;}
+    .aside:not(:last-child){
+        border-bottom: 2px solid $Off-white;
+    }
+    .aside {
+        padding-block: 10px;
+        margin: 10px 0;
+    }
+
+}
+$hight:100vh;
+$width:100%;
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+body{
+    font-size: 1rem;
+    margin:5px  10%;
+    flex-direction: column;
+    justify-content: center;
+}
+@mixin dimentions{
+    height: $hight;
+    max-width: $width;
+}
+@mixin  header-style{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    .logo{max-width:min-content;}
+       nav{width: 50%; height: 100%;
+            }
+    li{
+        list-style-type: none;
+        a{
+            text-decoration: none;
+        }
+    }
+    
+}
+@media screen and (max-width:375px) {
+    body{
+        font-size: 1rem;
+        margin:5px  5%;
+        flex-direction: column;
+        justify-content: center;
+    }
+    .header-top{
+        position: relative;
+        @include header-style();
+        .logo{max-width:min-content;}
+        nav{width: 50%; height: 100%;
+            }
+        ul{
+            @include position-mixin();
+            background-color: $Off-white;
+            position: absolute;
+            height: 100dvb;
+            flex-direction: column;
+            padding: 0120px 0 0 20px;
+            #close{
+                position: absolute;
+                top: 0;
+                right: 0;
+            }
+            li{
+                list-style-type: none;
+                margin-bottom: 20px;
+                a{
+                    text-decoration: none;
+                }
+            }
+            //.menu-close{@include position-mixin();width: 30px ; height: 30px; top: 10px; right: 0;}
+        }
+        nav ul{
+            display: none;
+        }
+    }
+
+    .wrapper{
+        display: grid;
+        grid-template-columns: repeat(1,1fr);
+        margin: 10px 0;
+        /*@include dimentions;*/
+        button{
+            background-color: $SoftRed;
+            padding: 5px 10px;
+            border: none;
+            &:hover{transform: scale(1.1);}
+        }
+        *:not(aside *){
+            margin: 10px 0;
+        }
+        aside{
+            @include aside-mixin();
+        }
+        .related{
+            display: block;
+            grid-template-columns: subgrid;
+            .box{
+                background-color: #fff;
+            }
+        }
+        .box{
+            display: grid;
+            grid-template-columns: repeat(3,1fr);
+            .box-img{
+                grid-column: 1/2;
+                display: none;
+                #img{
+                    display: none;
+                }
+            }
+            .description{
+                grid-column: 2/4;
+                padding-inline-start: 10px;
+                *{margin-bottom: 20px;}
+                h2{color: $SoftRed;}
+                p{color: $DarkGrayishBlue;}
+                
+            }
+        }
+    }
+}
+@media screen and (min-width:376px)and(max-width:899px) {
+    .header-top{
+        @include header-style();
+        .navMenu{
+            @include header-style();
+        }
+    }
+    .wrapper{
+        display: grid;
+        grid-template-columns: repeat(2,1fr);
+        grid-template-rows:repeat(3,fr);
+        @include dimentions;
+        .img{
+            grid-column: 1/3;
+        }
+        .topic{
+            grid-column: 1/2;
+            margin: 10px 0;
+        }
+        aside{
+            grid-column: 2/3;
+            background-color: $VeryDarkBlue;
+            color: $Off-white;
+            padding-left: 10px;
+        }
+        .related{
+            grid-column: 1/3;
+            display: flex;
+            flex-direction: column;
+            column-gap: 10px;
+            .box img{
+                height: 200px;
+            }
+        }
+    }
+}
+@media screen and (min-width:900px) {
+    .header-top{
+        margin-bottom: $margin-main;
+        @include header-style();
+        #open,#close{
+            display: none;
+        }
+        .navMenu{
+            @include header-style();
+        }
+    }
+    .wrapper{
+        background-color: #fff;
+        display: grid;
+        grid-template-columns: repeat(3,1fr);
+        grid-template-rows: repeat(3,1fr);
+        gap: 1%;
+        @include dimentions;
+        .img{
+            grid-column: 1/3;
+            width: 100%;
+            container-name: image;
+            container-type: inline-size;
+            
+        }
+        aside{
+            grid-column: 3;
+            margin-bottom: $margin-main;
+            @include aside-mixin();
+            grid-row: 1/3;
+            h1{color: $SoftOrange; margin: 10px 0;}
+            
+
+        }
+        .topic{
+            margin-bottom: $margin-main;
+            grid-column: 1/3;
+            display: grid;
+            grid-template-columns: subgrid;
+            padding-top: 20px;
+            button{
+                background-color: $SoftRed;
+                padding: 10px 20px;
+                height: min-content;
+                width:max-content;
+                border:0 dotted transparent;
+                &:hover{
+                   transform: scale(1.1)
+                }
+            }
+            .para{
+                
+                @include topic();
+                line-height: 20px;
+                font-size: 1.0rem;
+                color: $DarkGrayishBlue;
+            }
+            .title{
+                @include topic();
+                h1{font-size: 4rem;}
+            }
+        }
+        .related{
+            display: grid;
+            grid-column: 1/4;
+            grid-template-columns: subgrid;
+            .box{
+                background-color: #fff;
+            }
+        }
+        .box{
+            display: grid;
+            grid-template-columns: repeat(3,1fr);
+            .box-img{
+                grid-column: 1/2;
+                display: none;
+                #img{
+                    display: none;
+                }
+            }
+            .description{
+                grid-column: 2/4;
+                padding-inline-start: 10px;
+                *{margin-bottom: 20px;}
+                h2{color: $SoftRed;}
+                p{color: $DarkGrayishBlue;}
+                
+            }
+        }
+    }
+
+}
